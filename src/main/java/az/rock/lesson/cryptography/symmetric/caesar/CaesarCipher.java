@@ -1,5 +1,7 @@
 package az.rock.lesson.cryptography.symmetric.caesar;
 
+import az.rock.lesson.cryptography.Constant;
+
 import java.util.Locale;
 
 /**
@@ -9,7 +11,6 @@ import java.util.Locale;
  *  n is a key
  */
 public class CaesarCipher{
-    public static final String ALPHABET=" ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public String encrypt(String plainText,int key){
         final StringBuilder cipherText = new StringBuilder();
@@ -17,8 +18,8 @@ public class CaesarCipher{
 
         for (var i = 0;i < plainText.length();i++){
             char character = plainText.charAt(i);
-            int charIndex = ALPHABET.indexOf(character);
-            char encryptChar = ALPHABET.charAt(Math.floorMod((charIndex + key) , ALPHABET.length()));
+            int charIndex = Constant.ALPHABET.getValue().indexOf(character);
+            char encryptChar = Constant.ALPHABET.getValue().charAt(Math.floorMod((charIndex + key) , Constant.ALPHABET.getValue().length()));
             cipherText.append(encryptChar);
         }
 
@@ -30,8 +31,8 @@ public class CaesarCipher{
         final StringBuilder plainText = new StringBuilder();
         for (var i = 0;i < cipherText.length();i++) {
             char character = cipherText.charAt(i);
-            int charIndex = ALPHABET.indexOf(character);
-            char decryptChar = ALPHABET.charAt(Math.floorMod(charIndex - key,ALPHABET.length()));
+            int charIndex = Constant.ALPHABET.getValue().indexOf(character);
+            char decryptChar = Constant.ALPHABET.getValue().charAt(Math.floorMod(charIndex - key,Constant.ALPHABET.getValue().length()));
             plainText.append(decryptChar);
         }
         return plainText.toString();
