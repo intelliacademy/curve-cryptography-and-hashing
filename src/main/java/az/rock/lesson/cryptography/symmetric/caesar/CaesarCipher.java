@@ -9,7 +9,7 @@ import java.util.Locale;
  *  n is a key
  */
 public class CaesarCipher{
-    private static final String ALPHABET=" ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static final String ALPHABET=" ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public String encrypt(String plainText,int key){
         final StringBuilder cipherText = new StringBuilder();
@@ -18,7 +18,7 @@ public class CaesarCipher{
         for (var i = 0;i < plainText.length();i++){
             char character = plainText.charAt(i);
             int charIndex = ALPHABET.indexOf(character);
-            char encryptChar = ALPHABET.charAt((charIndex + key) % ALPHABET.length());
+            char encryptChar = ALPHABET.charAt(Math.floorMod((charIndex + key) , ALPHABET.length()));
             cipherText.append(encryptChar);
         }
 

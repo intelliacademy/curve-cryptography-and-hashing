@@ -1,6 +1,6 @@
 package az.rock.lesson.cryptography.symmetric.caesar;
 
-public class Main {
+public class CaesarMain {
     public static void main(String[] args) {
         CaesarCipher caesarCipher = new CaesarCipher();
         String cipherText = caesarCipher.encrypt("This is a plain text",3);
@@ -8,5 +8,9 @@ public class Main {
 
         String plainText = caesarCipher.decrypt(cipherText,3);
         System.out.println(plainText);
+
+        System.out.println("------------------Crack with BruteForce-----------------");
+        CaesarCipherBruteForce bruteForce = new CaesarCipherBruteForce();
+        bruteForce.crack(cipherText);
     }
 }
