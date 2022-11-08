@@ -31,7 +31,7 @@ public class CaesarCipher{
         for (var i = 0;i < cipherText.length();i++) {
             char character = cipherText.charAt(i);
             int charIndex = ALPHABET.indexOf(character);
-            char decryptChar = ALPHABET.charAt((Math.abs(charIndex - key)) % ALPHABET.length());
+            char decryptChar = ALPHABET.charAt(Math.floorMod(charIndex - key,ALPHABET.length()));
             plainText.append(decryptChar);
         }
         return plainText.toString();
