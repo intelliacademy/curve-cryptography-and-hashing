@@ -12,5 +12,9 @@ public class CaesarMain {
         System.out.println("------------------Crack with BruteForce-----------------");
         CaesarCipherBruteForce bruteForce = new CaesarCipherBruteForce();
         bruteForce.crack(cipherText);
+
+        System.out.println("------------------Crack with Frequencies Analysis-----------------");
+        CaesarCipherFrequencyAnalysis frequencyAnalysis  = new CaesarCipherFrequencyAnalysis();
+        frequencyAnalysis.showFrequencies(cipherText);
     }
 }
